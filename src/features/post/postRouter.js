@@ -22,7 +22,7 @@ PostRouter.post("/upload-image", fileUpload, (req, res) => {
 });
 
 //get all post
-PostRouter.get("/", postcontroller.getAllPost);
+PostRouter.get("/", postcontroller.getAllPosts);
 
 //Get post by id
 PostRouter.get("/:id", postcontroller.getPostById);

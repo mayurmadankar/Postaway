@@ -11,7 +11,7 @@ export default class PostModel {
     return newPost;
   }
   // Function to get all posts
-  getAllPost() {
+  getAllPosts() {
     return posts;
   }
   // Function to get post by ID
@@ -36,6 +36,7 @@ export default class PostModel {
     return false;
   }
 }
+//dummy values for post
 let posts = [
   {
     id: 1,

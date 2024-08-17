@@ -17,8 +17,8 @@ export default class PostController {
       .status(201)
       .json({ message: "Post created Successfully", post: newPost });
   }
-  getAllPost(req, res) {
-    const allPost = postmodel.getAllPost();
+  getAllPosts(req, res) {
+    const allPost = postmodel.getAllPosts();
     res.status(200).json({ allPost });
   }
   getPostById(req, res) {

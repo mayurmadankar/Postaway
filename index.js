@@ -6,6 +6,7 @@ import bodyParser from "body-parser";
 import userRouter from "./src/features/user/userRoutes.js";
 import jwtAuth from "./src/middleware/jwt.middleware.js";
 import PostRouter from "./src/features/post/postRouter.js";
+import commentRouter from "./src/features/comment/commentRouter.js";
 
 //create the server using express server
 const server = express();
@@ -13,6 +14,7 @@ const server = express();
 //to convert the request body from JSON format into the javascript object
 server.use(bodyParser.json());
 server.use(express.json());
+
 //to encode the url parse data by client
 server.use(bodyParser.urlencoded({ extended: true }));
 
@@ -25,6 +27,9 @@ server.use("/api/user", userRouter);
 
 //PostRouter
 server.use("/api/post", jwtAuth, PostRouter);
+
+//comment routes
+server.use("/api/comments", jwtAuth, commentRouter);
 
 //export the server for server.js
 export default server;
