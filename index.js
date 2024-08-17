@@ -9,6 +9,9 @@ import PostRouter from "./src/features/post/postRouter.js";
 import commentRouter from "./src/features/comment/commentRouter.js";
 import LikeRouter from "./src/features/like/likeRouter.js";
 
+import { errorHandlerMiddleware } from "./src/middleware/applicationError.middleware.js";
+import loggerMiddleware from "./src/middleware/logger.middleware.js";
+
 //create the server using express server
 const server = express();
 
@@ -23,6 +26,9 @@ server.get("/", (req, res) => {
   res.send("Welcome to the PostAway API");
 });
 
+//logger middleware to check the status of client
+server.use(loggerMiddleware);
+
 //UserRouter
 server.use("/api/user", userRouter);
 
@@ -33,7 +39,9 @@ server.use("/api/post", jwtAuth, PostRouter);
 server.use("/api/comments", jwtAuth, commentRouter);
 
 //Like Routes
-server.use("/api/likes", LikeRouter);
+server.use("/api/likes", jwtAuth, LikeRouter);
+
+server.use(errorHandlerMiddleware);
 
 //export the server for server.js
 export default server;

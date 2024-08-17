@@ -1,5 +1,5 @@
 import jwt from "jsonwebtoken";
-import CustomError from "./customError.middleware.js";
+import ApplicationError from "./applicationError.middleware.js";
 
 const jwtAuth = (req, res, next) => {
   // 1. Read the token from the 'Authorization' header
@@ -7,7 +7,7 @@ const jwtAuth = (req, res, next) => {
 
   // 2. If no token, return an error
   if (!token) {
-    return next(new CustomError(401, "Access denied. No token provided."));
+    return next(new ApplicationError(401, "Access denied. No token provided."));
   }
 
   // 3. Check if the token is valid
@@ -21,7 +21,7 @@ const jwtAuth = (req, res, next) => {
     req.user = decoded;
     next(); // Move to the next middleware
   } catch (error) {
-    return next(new CustomError(500, "Internal Server Error"));
+    return next(new ApplicationError(500, "Internal Server Error"));
   }
 };
 
