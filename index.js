@@ -7,6 +7,7 @@ import userRouter from "./src/features/user/userRoutes.js";
 import jwtAuth from "./src/middleware/jwt.middleware.js";
 import PostRouter from "./src/features/post/postRouter.js";
 import commentRouter from "./src/features/comment/commentRouter.js";
+import LikeRouter from "./src/features/like/likeRouter.js";
 
 //create the server using express server
 const server = express();
@@ -30,6 +31,9 @@ server.use("/api/post", jwtAuth, PostRouter);
 
 //comment routes
 server.use("/api/comments", jwtAuth, commentRouter);
+
+//Like Routes
+server.use("/api/likes", LikeRouter);
 
 //export the server for server.js
 export default server;
