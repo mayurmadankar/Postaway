@@ -34,4 +34,4 @@ const upload = multer({
 });
 
 // Middleware function to handle file uploads
-export const fileUpload = upload.single("image");
+export const fileUpload = upload.single("avatar");

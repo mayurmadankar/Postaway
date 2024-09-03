@@ -4,11 +4,11 @@ import express from "express";
 import bodyParser from "body-parser";
 
 //import the routes files here
-import userRouter from "./src/features/user/userRoutes.js";
+import userRouter from "./src/features/user/user.routes.js";
 import jwtAuth from "./src/middleware/jwt.middleware.js";
-import PostRouter from "./src/features/post/postRouter.js";
-import commentRouter from "./src/features/comment/commentRouter.js";
-import LikeRouter from "./src/features/like/likeRouter.js";
+// import PostRouter from "./src/features/post/postRouter.js";
+// import commentRouter from "./src/features/comment/commentRouter.js";
+// import LikeRouter from "./src/features/like/likeRouter.js";
 
 import { errorHandlerMiddleware } from "./src/middleware/applicationError.middleware.js";
 import loggerMiddleware from "./src/middleware/logger.middleware.js";
@@ -32,16 +32,16 @@ server.get("/", (req, res) => {
 server.use(loggerMiddleware);
 
 //UserRouter
-server.use("/api/user", userRouter);
+server.use("/api/users", userRouter);
 
 //PostRouter
-server.use("/api/post", jwtAuth, PostRouter);
+// server.use("/api/post", jwtAuth, PostRouter);
 
 //comment routes
-server.use("/api/comments", jwtAuth, commentRouter);
+// server.use("/api/comments", jwtAuth, commentRouter);
 
 //Like Routes
-server.use("/api/likes", jwtAuth, LikeRouter);
+// server.use("/api/likes", jwtAuth, LikeRouter);
 
 server.use(errorHandlerMiddleware);
 
