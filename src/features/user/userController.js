@@ -20,11 +20,9 @@ export default class userController {
     const { email, password } = req.body;
     const user = usermodel.signinUser(email, password);
     if (user) {
-      const token = jwt.sign(
-        { emailID: email },
-        "Np1feZQmW6aIC44XK4KFRBFoSbbwG4tL",
-        { expiresIn: "1h" }
-      );
+      const token = jwt.sign({ emailID: email }, process.env.JWT_SECRET, {
+        expiresIn: "1h"
+      });
       return res.status(200).json({ token });
     } else {
       res.status(401).json({ message: "Invalid credentials" });
