@@ -2,6 +2,9 @@ import UserRepository from "./user.repository.js";
 import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
 
+// Assuming you have a list to store invalidated tokens
+export const blackListedToken = new Set();
+
 export default class userController {
   constructor() {
     this.userRepository = new UserRepository();
@@ -12,6 +15,11 @@ export default class userController {
       const { name, emailId, password, gender } = req.body;
       const avatar = req.file.filename;
       const hashPassword = await bcrypt.hash(password, 12);
+      // Check if the user is already registered
+      const existingUser = await this.userRepository.findByEmail(emailId);
+      if (existingUser) {
+        return res.status(400).send("User already registered.");
+      }
       const userCreated = await this.userRepository.signUp(
         name,
         emailId,
@@ -70,5 +78,61 @@ export default class userController {
   }
   catch(error) {
     next(error);
+  }
+  //logout
+  async signOut(req, res, next) {
+    try {
+      const token = req.headers["authorization"];
+      if (!token) {
+        throw new ApplicationError("Unauthorized User!", 401);
+      }
+      // Add the token to the blacklist
+      blackListedToken.add(token);
+      res
+        .status(200)
+        .send({ success: true, message: "User has been logout successfully!" });
+    } catch (error) {
+      next(error);
+    }
+  }
+  async getAllUserDetail(req, res, next) {
+    try {
+      const users = await this.userRepository.getAllUser();
+      if (users)
+        res.status(200).send({
+          success: true,
+          message: "User retireved successfully!",
+          data: users
+        });
+      else
+        res
+          .status(400)
+          .send({ success: false, message: "User not retireved!" });
+    } catch (error) {
+      console.log(error);
+      next(error);
+    }
+  }
+  async getDetailByUser(req, res, next) {
+    try {
+      const Id = req.userId;
+      console.log(Id);
+      const userId = req.params.id;
+      console.log(userId);
+      const user = await this.userRepository.getUserDetail(Id, userId);
+      if (user)
+        res.status(200).send({
+          success: true,
+          message: "User retireved successfully!",
+          data: user
+        });
+      else
+        res
+          .status(400)
+          .send({ success: false, message: "User not retrieved!" });
+    } catch (error) {
+      console.log(error);
+      next(error);
+    }
   }
 }

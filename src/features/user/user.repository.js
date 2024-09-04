@@ -28,7 +28,7 @@ export default class UserRepository {
       return await UserModel.findOne({ emailId, password });
     } catch (err) {
       console.log(err);
-      throw new ApplicationError(err.message, 500);
+      throw new ApplicationError("Error while signIn", 500);
     }
   }
   async findByEmail(emailId) {
@@ -37,6 +37,25 @@ export default class UserRepository {
     } catch (err) {
       console.log(err);
       throw new ApplicationError("Error while checking email in database", 500);
+    }
+  }
+  async getAllUser() {
+    try {
+      return await UserModel.find().select("-password");
+    } catch (error) {
+      console.log(error);
+      throw new ApplicationError("Error while getting all user details", 500);
+    }
+  }
+  async getUserDetail(id, userId) {
+    try {
+      if (id === userId) {
+        return await UserModel.findById(id).select("-password");
+      } else {
+        throw new ApplicationError("Authorized user not found", 403);
+      }
+    } catch (error) {
+      throw new ApplicationError(error.message || "Database query failed", 500);
     }
   }
 }
