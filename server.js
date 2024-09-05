@@ -6,7 +6,7 @@ import bodyParser from "body-parser";
 //import the routes files here
 import userRouter from "./src/features/user/user.routes.js";
 import jwtAuth from "./src/middleware/jwt.middleware.js";
-// import PostRouter from "./src/features/post/postRouter.js";
+import postRouter from "./src/features/post/post.router.js";
 // import commentRouter from "./src/features/comment/commentRouter.js";
 // import LikeRouter from "./src/features/like/likeRouter.js";
 import otpRouter from "./src/features/otp/otp.routes.js";
@@ -35,8 +35,8 @@ server.use(loggerMiddleware);
 //UserRouter
 server.use("/api/users", userRouter);
 
-//PostRouter
-// server.use("/api/post", jwtAuth, PostRouter);
+// PostRouter;
+server.use("/api/posts", jwtAuth, postRouter);
 
 //comment routes
 // server.use("/api/comments", jwtAuth, commentRouter);

@@ -25,7 +25,7 @@ const fileFilter = (req, file, cb) => {
 };
 
 // Multer upload configuration
-const upload = multer({
+export const upload = multer({
   storage: storage,
   limits: {
     fileSize: 1024 * 1024 * 5 // Limit file size to 5 MB
@@ -34,4 +34,4 @@ const upload = multer({
 });
 
 // Middleware function to handle file uploads
-export const fileUpload = upload.single("avatar");
+// export const fileUpload = upload.single("avatar");
