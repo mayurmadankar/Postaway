@@ -8,7 +8,7 @@ import userRouter from "./src/features/user/user.routes.js";
 import jwtAuth from "./src/middleware/jwt.middleware.js";
 import postRouter from "./src/features/post/post.router.js";
 // import commentRouter from "./src/features/comment/commentRouter.js";
-// import LikeRouter from "./src/features/like/likeRouter.js";
+import likeRouter from "./src/features/like/like.routes.js";
 import otpRouter from "./src/features/otp/otp.routes.js";
 
 import { errorHandlerMiddleware } from "./src/middleware/applicationError.middleware.js";
@@ -42,7 +42,7 @@ server.use("/api/posts", jwtAuth, postRouter);
 // server.use("/api/comments", jwtAuth, commentRouter);
 
 //Like Routes
-// server.use("/api/likes", jwtAuth, LikeRouter);
+server.use("/api/likes", jwtAuth, likeRouter);
 
 //otp Routes
 server.use("/api/otp", otpRouter);
