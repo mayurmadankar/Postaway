@@ -81,3 +81,6 @@
 2024-09-04T15:57:13.117Z info: Request URL: /api/users/signin | Request Body: {"emailId":"mafia312@gmail.com","password":"mayurmadankar"}
 2024-09-04T15:57:31.956Z info: Request URL: /api/users/get-details/66d8568a27975e861e657415 | Request Body: {}
 2024-09-04T15:58:44.628Z info: Request URL: /api/users/get-details/66d8568a27975e861e657415 | Request Body: {}
+2024-09-05T10:22:25.725Z info: Request URL: /api/users/update-details/66d8568a27975e861e657415 | Request Body: {}
+2024-09-05T10:22:37.165Z info: Request URL: /api/users/signin | Request Body: {"emailId":"mafia312@gmail.com","password":"mayurmadankar"}
+2024-09-05T10:23:01.587Z info: Request URL: /api/users/update-details/66d8568a27975e861e657415 | Request Body: {}

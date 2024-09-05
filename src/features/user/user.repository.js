@@ -58,4 +58,23 @@ export default class UserRepository {
       throw new ApplicationError(error.message || "Database query failed", 500);
     }
   }
+  async updateUser(id, userId, name, gender, avatar) {
+    try {
+      if (id == userId) {
+        const user = await UserModel.findById(id).select("-email -password");
+        if (user) {
+          user.name = name;
+          user.gender = gender;
+          user.avatar = avatar;
+          return await user.save();
+        } else {
+          throw new ApplicationError("User not exists in database!", 500);
+        }
+      } else {
+        throw new ApplicationError("Unauthorised user found!", 500);
+      }
+    } catch (error) {
+      throw new ApplicationError(error.message, 500);
+    }
+  }
 }

@@ -26,5 +26,7 @@ userRouter.get("/get-all-details", jwtAuth, (req, res, next) => {
 userRouter.get("/get-details/:id", jwtAuth, (req, res, next) => {
   usercontroller.getDetailByUser(req, res, next);
 });
-
+userRouter.put("/update-details/:id", jwtAuth, fileUpload, (req, res, next) => {
+  usercontroller.updateUserDetail(req, res, next);
+});
 export default userRouter;

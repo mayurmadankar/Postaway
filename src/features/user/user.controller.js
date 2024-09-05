@@ -135,4 +135,28 @@ export default class userController {
       next(error);
     }
   }
+  async updateUserDetail(req, res, next) {
+    try {
+      const { name, gender } = req.body;
+      const id = req.userId;
+      const userId = req.params.id;
+      const avatar = req.file.filename;
+
+      const updatedUser = await this.userRepository.updateUser(
+        id,
+        userId,
+        name,
+        gender,
+        avatar
+      );
+      if (updatedUser)
+        res.status(200).send({
+          success: true,
+          message: "User updated successfully!",
+          data: updatedUser
+        });
+    } catch (error) {
+      next(error);
+    }
+  }
 }
