@@ -159,4 +159,55 @@ export default class userController {
       next(error);
     }
   }
+  async resetPassword(req, res, next) {
+    try {
+      const { newPassword } = req.body;
+      const id = req.userId;
+      const hashedPassword = await bcrypt.hash(newPassword, 12);
+      const isPasswordReset = await this.userRepository.resetPasswordUser(
+        id,
+        hashedPassword
+      );
+      if (isPasswordReset)
+        res
+          .status(200)
+          .send({ success: true, message: "Password reset successfully!" });
+      else
+        res
+          .status(400)
+          .send({ success: false, message: "Password not reset!" });
+    } catch (error) {
+      next(error);
+    }
+  }
+  async sendOtp(req, res, next) {
+    try {
+      const { email } = req.body;
+      const userOtp = await this.userRepository.sendOtpUser(email);
+      if (userOtp)
+        res.status(200).send({
+          success: true,
+          message: "Otp send successfully!",
+          otp: userOtp
+        });
+      else res.status(400).send({ success: false, message: "Otp not send!" });
+    } catch (error) {
+      next(error);
+    }
+  }
+  async verifyOtp(req, res, next) {
+    try {
+      const { otp } = req.body;
+      const id = req.userId;
+      const isOtpVerified = await this.userRepository.verifyOtpUser(id, otp);
+      if (isOtpVerified)
+        res
+          .status(200)
+          .send({ success: true, message: "Otp verified successfully!" });
+      else
+        res.status(400).send({ success: false, message: "Otp not verified!" });
+    } catch (error) {
+      next(error);
+    }
+  }
 }

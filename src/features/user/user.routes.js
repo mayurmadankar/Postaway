@@ -29,4 +29,8 @@ userRouter.get("/get-details/:id", jwtAuth, (req, res, next) => {
 userRouter.put("/update-details/:id", jwtAuth, fileUpload, (req, res, next) => {
   usercontroller.updateUserDetail(req, res, next);
 });
+// userRouter.put("/resetPassword", jwtAuth, (req, res, next) => {
+//   usercontroller.resetPassword(req, res, next);
+// });
+
 export default userRouter;

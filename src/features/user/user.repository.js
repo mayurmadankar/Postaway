@@ -1,6 +1,8 @@
 import ApplicationError from "../../middleware/applicationError.middleware.js";
 import { UserModel } from "./user.schema.js";
 import mongoose from "mongoose";
+import { generateOTP } from "../../services/otp.js";
+import { sendOTPMail } from "../../services/mailer.js";
 
 export default class UserRepository {
   async signUp(name, emailId, password, gender, avatar) {
@@ -73,6 +75,63 @@ export default class UserRepository {
       } else {
         throw new ApplicationError("Unauthorised user found!", 500);
       }
+    } catch (error) {
+      throw new ApplicationError(error.message, 500);
+    }
+  }
+  async resetPasswordUser(id, password) {
+    try {
+      let user = await UserModel.findById({ _id: id }).select(
+        "-email -password"
+      );
+      if (user.otpVerify == "verified") {
+        user.otp = undefined;
+        user.otpExpires = undefined;
+        user.otpVerify = undefined;
+        user.password = password;
+        return user.save();
+      } else {
+        throw new ApplicationError("Otp not verified!", 400);
+      }
+    } catch (error) {
+      console.log(error);
+      throw new ApplicationError(error.message, error.code);
+    }
+  }
+  async sendOtpUser(email) {
+    try {
+      const user = await UserModel.findOne({ emailId: email });
+      if (!user) {
+        throw new Error("User not exists in database!");
+      }
+
+      const otp = await generateOTP();
+      user.otp = otp;
+      user.otpExpires = Date.now() + 3600000; // OTP expires in 1 hour
+      await user.save();
+
+      const sendOtp = await sendOTPMail(
+        email,
+        "Otp For Password Reset",
+        `Here below is the Otp send. Your Otp is ${otp}`
+      );
+      return user.otp;
+    } catch (error) {
+      throw new ApplicationError(error.message, 500);
+    }
+  }
+  async verifyOtpUser(id, otp) {
+    try {
+      const user = await UserModel.findOne({
+        _id: id,
+        otp,
+        otpExpires: { $gt: Date.now() }
+      }).select("-email -password");
+      if (!user) {
+        throw new ApplicationError("Invalid OTP or OTP expired", 400);
+      }
+      user.otpVerify = "verified";
+      return await user.save();
     } catch (error) {
       throw new ApplicationError(error.message, 500);
     }

@@ -84,3 +84,13 @@
 2024-09-05T10:22:25.725Z info: Request URL: /api/users/update-details/66d8568a27975e861e657415 | Request Body: {}
 2024-09-05T10:22:37.165Z info: Request URL: /api/users/signin | Request Body: {"emailId":"mafia312@gmail.com","password":"mayurmadankar"}
 2024-09-05T10:23:01.587Z info: Request URL: /api/users/update-details/66d8568a27975e861e657415 | Request Body: {}
+2024-09-05T11:05:53.302Z info: Request URL: /api/otp/send | Request Body: {}
+2024-09-05T11:07:50.527Z info: Request URL: /api/users/signup | Request Body: {}
+2024-09-05T11:08:06.489Z info: Request URL: /api/users/signin | Request Body: {"emailId":"mafia312op@gmail.com","password":"mayurmadankar"}
+2024-09-05T11:08:22.404Z info: Request URL: /api/users/signin | Request Body: {"emailId":"mafiaop312op@gmail.com","password":"mayurmadankar"}
+2024-09-05T11:08:52.675Z info: Request URL: /api/users/signin | Request Body: {"emailId":"mafiaop312@gmail.com","password":"mayurmadankar"}
+2024-09-05T11:09:33.703Z info: Request URL: /api/otp/send | Request Body: {"email":"mafiaop312@gmail.com"}
+2024-09-05T11:20:42.349Z info: Request URL: /api/otp/send | Request Body: {"email":"mafiaop312@gmail.com"}
+2024-09-05T11:27:11.016Z info: Request URL: /api/otp/verify | Request Body: {"otp":"519227"}
+2024-09-05T11:30:20.368Z info: Request URL: /api/otp/reset-password | Request Body: {"newPassword":"mafiaop"}
+2024-09-05T11:31:53.335Z info: Request URL: /api/otp/reset-password | Request Body: {"newPassword":"mafiaop"}
