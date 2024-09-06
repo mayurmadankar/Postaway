@@ -165,3 +165,8 @@
 2024-09-06T12:49:43.635Z info: Request URL: /api/friends/sendrequest/66d766aa41939404a733ed35 | Request Body: {}
 2024-09-06T12:50:23.396Z info: Request URL: /api/friends/sendrequest/66d766aa41939404a733ed35 | Request Body: {}
 2024-09-06T12:52:39.195Z info: Request URL: /api/friends/sendrequest/66d8568a27975e861e657415 | Request Body: {}
+2024-09-06T18:35:15.118Z info: Request URL: /api/users/signin | Request Body: {"emailId":"mafiaop312@gmail.com","password":"mafiaop"}
+2024-09-06T18:35:50.739Z info: Request URL: /api/friends/acceptrequest/66d8568a27975e861e657415 | Request Body: {}
+2024-09-06T18:53:36.443Z info: Request URL: /api/friends/rejectrequest/66d766aa41939404a733ed35 | Request Body: {}
+2024-09-06T19:00:28.896Z info: Request URL: /api/friends/rejectrequest/66d8568a27975e861e657415 | Request Body: {}
+2024-09-06T19:00:49.318Z info: Request URL: /api/friends/unfollow/66d8568a27975e861e657415 | Request Body: {}
