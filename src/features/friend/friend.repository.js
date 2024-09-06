@@ -98,4 +98,41 @@ export default class FriendRepository {
       throw new ApplicationError(error.message, 500);
     }
   }
+  async getFriends(userId) {
+    try {
+      const userWithFriends = await UserModel.findOne({ _id: userId }).populate(
+        "follower",
+        "_id name gender"
+      );
+
+      if (userWithFriends && userWithFriends.follower.length > 0) {
+        return userWithFriends.follower;
+      } else {
+        return "No Friends";
+      }
+    } catch (error) {
+      throw new ApplicationError(error.message, 500);
+    }
+  }
+  async getPendingRequests(userId) {
+    try {
+      const mainUser = await UserModel.findOne({ _id: userId });
+      if (mainUser) {
+        const pendingListId = await FriendModel.findById(
+          mainUser.friendId._id
+        ).populate("requests", "_id name gender");
+        if (
+          pendingListId &&
+          pendingListId.requests &&
+          pendingListId.requests.length > 0
+        ) {
+          return pendingListId.requests;
+        } else {
+          return "No pending requests";
+        }
+      }
+    } catch (error) {
+      throw new ApplicationError(error.message, 500);
+    }
+  }
 }

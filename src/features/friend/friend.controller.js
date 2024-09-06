@@ -76,16 +76,54 @@ export default class FriendConroller {
       const userId = req.params.id;
       const requestUnfollow = await this.friendRepository.unfollow(id, userId);
       if (requestUnfollow)
-        res
-          .status(200)
-          .send({
-            success: true,
-            message: "friend request unfollow successfully!"
-          });
+        res.status(200).send({
+          success: true,
+          message: "friend request unfollow successfully!"
+        });
       else
         res
           .status(400)
           .send({ success: false, message: "friend request not unfollow!" });
+    } catch (error) {
+      next(error);
+    }
+  }
+  async getFriends(req, res, next) {
+    try {
+      const userId = req.userId;
+      const followers = await this.friendRepository.getFriends(userId);
+      if (followers) {
+        res.status(200).send({
+          success: true,
+          message: "List of all friends",
+          data: [followers]
+        });
+      } else {
+        res
+          .status(400)
+          .send({ success: false, message: "No followers found", data: [] });
+      }
+    } catch (error) {
+      next(error);
+    }
+  }
+  async getPendingRequests(req, res, next) {
+    try {
+      const userId = req.userId; //from token
+      const pendingRequest = await this.friendRepository.getPendingRequests(
+        userId
+      );
+      if (pendingRequest) {
+        res.status(200).send({
+          success: true,
+          messgae: "List of pending request",
+          data: [pendingRequest]
+        });
+      } else {
+        res
+          .status(400)
+          .send({ success: false, message: "No Pending Request", data: [] });
+      }
     } catch (error) {
       next(error);
     }
