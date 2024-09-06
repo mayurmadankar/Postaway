@@ -151,3 +151,17 @@
 2024-09-06T11:42:42.953Z info: Request URL: /api/comments/66dae6978ca0a4d0091fcb55 | Request Body: {"newComment":"Pic is Awesome"}
 2024-09-06T11:43:49.025Z info: Request URL: /api/comments/66d9cc872d67246ace97dec2 | Request Body: {"comment":"Nice pic,i love this"}
 2024-09-06T11:55:12.009Z info: Request URL: /api/comments/66daeaf53d3a7bcc4ae0eaeb | Request Body: {}
+2024-09-06T12:33:45.561Z info: Request URL: /api/friends/66d766aa41939404a733ed35 | Request Body: {}
+2024-09-06T12:34:10.249Z info: Request URL: /api/friends/sendrequest/66d766aa41939404a733ed35 | Request Body: {}
+2024-09-06T12:35:13.389Z info: Request URL: /api/friends/sendrequest/66d766aa41939404a733ed35 | Request Body: {}
+2024-09-06T12:36:09.711Z info: Request URL: /api/friends/sendrequest/66d766aa41939404a733ed35 | Request Body: {}
+2024-09-06T12:37:00.713Z info: Request URL: /api/friends/sendrequest/66d99107a5f9a17a2e37af27 | Request Body: {}
+2024-09-06T12:39:40.288Z info: Request URL: /api/friends/sendrequest/66d766aa41939404a733ed35 | Request Body: {}
+2024-09-06T12:40:25.676Z info: Request URL: /api/friends/sendrequest/66d766aa41939404a733ed35 | Request Body: {}
+2024-09-06T12:42:57.740Z info: Request URL: /api/friends/sendrequest/66d766aa41939404a733ed35 | Request Body: {}
+2024-09-06T12:43:13.089Z info: Request URL: /api/friends/sendrequest/66d766aa41939404a733ed35 | Request Body: {}
+2024-09-06T12:44:15.599Z info: Request URL: /api/friends/sendrequest/66d766aa41939404a733ed35 | Request Body: {}
+2024-09-06T12:46:11.157Z info: Request URL: /api/friends/sendrequest/66d766aa41939404a733ed35 | Request Body: {}
+2024-09-06T12:49:43.635Z info: Request URL: /api/friends/sendrequest/66d766aa41939404a733ed35 | Request Body: {}
+2024-09-06T12:50:23.396Z info: Request URL: /api/friends/sendrequest/66d766aa41939404a733ed35 | Request Body: {}
+2024-09-06T12:52:39.195Z info: Request URL: /api/friends/sendrequest/66d8568a27975e861e657415 | Request Body: {}

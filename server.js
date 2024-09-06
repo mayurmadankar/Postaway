@@ -14,6 +14,7 @@ import otpRouter from "./src/features/otp/otp.routes.js";
 import { errorHandlerMiddleware } from "./src/middleware/applicationError.middleware.js";
 import loggerMiddleware from "./src/middleware/logger.middleware.js";
 import { connectUsingMongoose } from "./src/config/mongooseConfig.js";
+import friendRouter from "./src/features/friend/friend.routes.js";
 
 //create the server using express server
 const server = express();
@@ -42,10 +43,13 @@ server.use("/api/posts", jwtAuth, postRouter);
 server.use("/api/comments", jwtAuth, commentRouter);
 
 //Like Routes
-server.use("/api/likes", jwtAuth, likeRouter);
+server.use("/api/likes", likeRouter);
 
 //otp Routes
 server.use("/api/otp", otpRouter);
+
+//Friendship Routes
+server.use("/api/friends", friendRouter);
 
 server.use(errorHandlerMiddleware);
 
