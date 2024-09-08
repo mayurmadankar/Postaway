@@ -2,6 +2,9 @@
 
 Postaway is a social media platform API built using Express.js and MongoDB, designed to enable users to perform various social networking activities such as registration, authentication, post creation, commenting, liking, managing friendships, and more. The API supports secure user authentication with JWT, file uploads, and OTP-based password reset for enhanced security. It follows a scalable and modular architecture, making it easy to maintain and extend.
 
+## Fork the Collection 
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://god.gw.postman.com/run-collection/36661483-63b491c2-df5b-4f48-8a15-e2a535337bcc?action=collection%2Ffork&source=rip_markdown&collection-url=entityId%3D36661483-63b491c2-df5b-4f48-8a15-e2a535337bcc%26entityType%3Dcollection%26workspaceId%3D2b5d1511-d0b6-4a63-8861-6ddbb36baaa9)
+
 ## Features
 
 - **User Management**: Users can register, log in, and manage their profiles.
