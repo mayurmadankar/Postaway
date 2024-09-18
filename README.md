@@ -1,18 +1,23 @@
 # Postaway Social Media API
 
-Postaway is a social media platform API built using Express.js, designed to enable users to perform various social networking activities such as registration, authentication, post creation, commenting, liking, and more.
+Postaway is a social media platform API built using Express.js and MongoDB, designed to enable users to perform various social networking activities such as registration, authentication, post creation, commenting, liking, managing friendships, and more. The API supports secure user authentication with JWT, file uploads, and OTP-based password reset for enhanced security. It follows a scalable and modular architecture, making it easy to maintain and extend.
+
+## Fork the Collection 
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://god.gw.postman.com/run-collection/36661483-63b491c2-df5b-4f48-8a15-e2a535337bcc?action=collection%2Ffork&source=rip_markdown&collection-url=entityId%3D36661483-63b491c2-df5b-4f48-8a15-e2a535337bcc%26entityType%3Dcollection%26workspaceId%3D2b5d1511-d0b6-4a63-8861-6ddbb36baaa9)
 
 ## Features
 
-- **User Management**: Register and authenticate users.
-- **Post Creation**: Users can create posts with text and media.
-- **Commenting**: Users can comment on posts.
-- **Liking**: Users can like posts.
-- **File Upload**: Supports file upload for user avatars and post images.
-- **Error Handling**: Graceful handling of errors with appropriate HTTP status codes and error messages.
-- **Authentication**: Implements JSON Web Tokens (JWT) for user authentication.
-- **Security**: Ensures security measures like data validation and input sanitization.
-- **Scalable Architecture**: Uses Express.js for a scalable and modular architecture.
+- **User Management**: Users can register, log in, and manage their profiles.
+- **Post Creation**: Allows users to create, update, and delete posts with captions and images.
+- **Commenting System**: Users can add, update, and delete comments on posts.
+- **Liking System**: Users can like posts, with real-time like counts displayed.
+- **File Upload**: Supports uploading user avatars and post images.
+- **Friendship Features**: Users can send, accept, and manage friend requests.
+- **OTP-Based Password Reset**: Secure OTP-based password reset functionality using Nodemailer.
+- **Error Handling**: Centralized error handling with custom error messages and HTTP status codes.
+- **Authentication**: Secure user authentication with JSON Web Tokens (JWT).
+- **Security Measures**: Implements input validation, data sanitization, and password hashing for enhanced security.
+- **Modular Code Architecture**: Scalable, modular structure using Express.js and ES6 modules.
 
 ## Installation
 
@@ -35,7 +40,12 @@ Postaway is a social media platform API built using Express.js, designed to enab
 
 - **POST /api/user/signup**: Register a new user account.
 - **POST /api/user/signin**: Log in as a user.
+- **POST /api/user//api/users/logout**: Logout the user.
+- **POST /api/users/logout-all-devices**: logout all devices
 - **POST /api/user/upload-avatar**: Upload user avatar.
+- **GET /api/users/get-details**: Get user details.
+- **GET /api/users/get-all-details**:Get all user details.
+- **GET /api/users/update-details**:Update the Details.
 
 ### Post Routes
 
@@ -57,13 +67,22 @@ Postaway is a social media platform API built using Express.js, designed to enab
 
 - **POST /api/likes**: Add a like to a post.
 - **DELETE /api/likes/:id**: Remove a like from a post.
+- **POST /api/likes/toggle/:id**:Toggle the like.
 - **GET /api/likes/:postId**: Retrieve all likes for a specific post.
 
 ## Technologies Used
 
-- Express.js
-- JSON Web Tokens (JWT)
-- Multer
+- **Node.js**: Backend JavaScript runtime for building the application.
+- **Express.js**: Web framework used for creating scalable and modular RESTful APIs.
+- **MongoDB**: NoSQL database for managing user data, posts, comments, likes, and friendships.
+- **Mongoose**: ODM (Object Data Modeling) library to interact with MongoDB.
+- **JSON Web Tokens (JWT)**: For secure user authentication and authorization.
+- **Multer**: Middleware for handling file uploads (e.g., user avatars, post images).
+- **Nodemailer**: For sending OTP-based password reset emails.
+- **bcrypt.js**: For hashing and securing user passwords.
+- **Validator.js**: For input validation and sanitization to ensure security.
+- **ES6 Modules**: For maintaining a modular and organized code structure.
+
 
 ## Contributing
 
