@@ -185,3 +185,7 @@
 2024-09-06T20:31:26.853Z info: Request URL: /api/friends/get-pending-requests/ | Request Body: {}
 2024-09-06T20:32:10.863Z info: Request URL: /api/friends/get-pending-requests/ | Request Body: {}
 2024-09-06T20:35:46.051Z info: Request URL: /api/friends/get-pending-requests/ | Request Body: {}
+2024-09-08T13:09:57.223Z info: Request URL: /api/users/signin | Request Body: {"emailId":"mafiaop312@gmail.com","password":"mafiaop"}
+2024-09-08T13:13:47.032Z info: Request URL: /api/users/signup | Request Body: {}
+2024-09-08T13:14:12.908Z info: Request URL: /api/users/signin | Request Body: {"emailId":"mafiaop312@gmail.com","password":"mayurmadankar"}
+2024-09-08T18:10:46.109Z info: Request URL: /api/users/logout | Request Body: {}
