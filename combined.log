@@ -189,3 +189,4 @@
 2024-09-08T13:13:47.032Z info: Request URL: /api/users/signup | Request Body: {}
 2024-09-08T13:14:12.908Z info: Request URL: /api/users/signin | Request Body: {"emailId":"mafiaop312@gmail.com","password":"mayurmadankar"}
 2024-09-08T18:10:46.109Z info: Request URL: /api/users/logout | Request Body: {}
+2024-09-18T10:16:15.239Z info: Request URL: /favicon.ico | Request Body: {}
