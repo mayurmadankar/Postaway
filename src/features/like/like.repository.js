@@ -1,4 +1,5 @@
 import ApplicationError from "../../middleware/applicationError.middleware.js";
+import { PostModel } from "../post/post.schema.js";
 import { UserModel } from "../user/user.schema.js";
 import { LikeModel } from "./like.schema.js";
 
@@ -9,11 +10,16 @@ export default class LikeRepository {
         postId: postId,
         userId: userId
       });
+      await PostModel.updateOne(
+        { _id: postId },
+        { $set: { likeId: result._id } }
+      );
       return result;
     } catch (error) {
       throw new ApplicationError(error.message, 400);
     }
   }
+
   async get(postId) {
     try {
       const likePost = await LikeModel.findOne({ postId: postId });

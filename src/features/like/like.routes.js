@@ -5,7 +5,7 @@ const likeRouter = express.Router();
 
 const likecontroller = new LikeController();
 
-likeRouter.post("/:id", (req, res, next) => {
+likeRouter.post("/:id", jwtAuth, (req, res, next) => {
   likecontroller.addLike(req, res, next);
 });
 likeRouter.get("/:id", (req, res, next) =>

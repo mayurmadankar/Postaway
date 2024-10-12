@@ -15,6 +15,7 @@ import { errorHandlerMiddleware } from "./src/middleware/applicationError.middle
 import loggerMiddleware from "./src/middleware/logger.middleware.js";
 import { connectUsingMongoose } from "./src/config/mongooseConfig.js";
 import friendRouter from "./src/features/friend/friend.routes.js";
+import detailRouter from "./src/features/detais/detail.route.js";
 
 //create the server using express server
 const server = express();
@@ -50,6 +51,9 @@ server.use("/api/otp", otpRouter);
 
 //Friendship Routes
 server.use("/api/friends", friendRouter);
+
+//details  routes
+server.use("/api/details", detailRouter);
 
 server.use(errorHandlerMiddleware);
 

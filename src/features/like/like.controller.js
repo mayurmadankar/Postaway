@@ -8,6 +8,7 @@ export default class LikeController {
     try {
       const postId = req.params.id;
       const userId = req.userId;
+      // console.log(userId);
       const likeAdded = await this.likeRepository.addLike(postId, userId);
       if (likeAdded) {
         res.status(200).send({
@@ -50,21 +51,17 @@ export default class LikeController {
       const userId = req.userId;
       const toggleLike = await this.likeRepository.toggle(postId, userId);
       if (toggleLike)
-        res
-          .status(201)
-          .send({
-            success: true,
-            message: "Like toggle successfully!",
-            data: toggleLike
-          });
+        res.status(201).send({
+          success: true,
+          message: "Like toggle successfully!",
+          data: toggleLike
+        });
       else
-        res
-          .status(400)
-          .send({
-            success: false,
-            message: "Like not toggled!",
-            data: toggleLike
-          });
+        res.status(400).send({
+          success: false,
+          message: "Like not toggled!",
+          data: toggleLike
+        });
     } catch (error) {
       next(error);
     }
