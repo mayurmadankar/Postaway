@@ -1,6 +1,10 @@
 import mongoose from "mongoose";
 
 const commentSchema = new mongoose.Schema({
+  postId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Post"
+  },
   comments: [
     {
       comment: {
@@ -11,11 +15,7 @@ const commentSchema = new mongoose.Schema({
         ref: "User"
       }
     }
-  ],
-  postId: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "Post"
-  }
+  ]
 });
 
 export const CommentModel = mongoose.model("Comment", commentSchema);
