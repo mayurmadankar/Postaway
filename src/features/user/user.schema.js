@@ -1,8 +1,6 @@
-
 import mongoose from "mongoose";
 
 const userSchema = new mongoose.Schema({
-
   name: {
     type: String,
     required: true,
@@ -24,25 +22,25 @@ const userSchema = new mongoose.Schema({
   avatar: {
     type: String
   },
-  friendId:{
-    type:mongoose.Schema.Types.ObjectId,
-    ref:'Friend'
+  friendId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Friend"
   },
-  follower:[
+  follower: [
     {
-        type:mongoose.Schema.Types.ObjectId,
-        ref:'User'
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User"
     }
   ],
-  otp:{
-     type: String
+  otp: {
+    type: String
   },
-  otpExpires: { 
-    type: Date 
+  otpExpires: {
+    type: Date
   },
-  otpVerify: { 
-    type: String 
+  otpVerify: {
+    type: String
   }
-})
+});
 
-export const UserModel = mongoose.model('User',userSchema);
+export const UserModel = mongoose.model("User", userSchema);
