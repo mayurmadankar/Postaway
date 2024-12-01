@@ -1,6 +1,7 @@
 import ApplicationError from "../../middleware/applicationError.middleware.js";
 import mongoose from "mongoose";
 import { PostModel } from "./post.schema.js";
+import Detail from "../detais/detail.schema.js";
 
 export default class PostRepository {
   async create(caption, description, image, userId) {
@@ -12,6 +13,20 @@ export default class PostRepository {
         userId: new mongoose.Types.ObjectId(userId)
       });
       let savedPost = await newPost.save();
+
+      // Update the user's details in the `Detail` schema
+      await Detail.updateOne(
+        { user: userId }, // Find the user's details by their ID
+        {
+          $push: {
+            createdPosts: {
+              postID: savedPost._id // Add the post ID to `createdPosts`
+            }
+          }
+        },
+        { upsert: true } // Create a new `Detail` document if none exists for the user
+      );
+
       return savedPost;
     } catch (error) {
       throw new ApplicationError(error.message, 500);

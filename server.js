@@ -55,11 +55,14 @@ server.use("/api/friends", friendRouter);
 //details  routes
 server.use("/api/details", detailRouter);
 
+
 server.use(errorHandlerMiddleware);
 
 server.use("/", (req, res) => {
   res.send("Welcome to the Postaway API");
 });
+
+
 
 const port = 3000;
 server.listen(port, () => {

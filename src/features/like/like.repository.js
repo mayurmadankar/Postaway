@@ -1,4 +1,5 @@
 import ApplicationError from "../../middleware/applicationError.middleware.js";
+import Detail from "../detais/detail.schema.js";
 import { PostModel } from "../post/post.schema.js";
 import { UserModel } from "../user/user.schema.js";
 import { LikeModel } from "./like.schema.js";
@@ -13,6 +14,16 @@ export default class LikeRepository {
       await PostModel.updateOne(
         { _id: postId },
         { $set: { likeId: result._id } }
+      );
+      await Detail.updateOne(
+        { user: userId },
+        {
+          $push: {
+            likedPosts: {
+              postId: postId
+            }
+          }
+        }
       );
       return result;
     } catch (error) {
