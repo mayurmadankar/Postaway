@@ -20,7 +20,11 @@ export default class DetailController {
           .json({ message: "No details found for this user." });
       }
 
-      res.status(200).send(details);
+      res.status(200).send({
+        success: true,
+        message: "details of the user",
+        data: details
+      });
     } catch (error) {
       next(error); // Pass error to error-handling middleware
     }
