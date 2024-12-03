@@ -43,3 +43,8 @@
 2024-12-01T12:42:05.474Z info: Request URL: /api/comments/66d9cc872d67246ace97dec2 | Request Body: {"comment":"Nice pic,i love this , mine"}
 2024-12-01T12:42:19.062Z info: Request URL: /api/likes/670ab24340f95c2c0d0cf58e | Request Body: {}
 2024-12-01T12:42:52.216Z info: Request URL: /api/details | Request Body: {}
+2024-12-03T09:42:25.594Z info: Request URL: /api/users/signup | Request Body: {}
+2024-12-03T09:42:29.956Z info: Request URL: /api/users/signin | Request Body: {"emailId":"pqrs@gmail.com","password":"mine123"}
+2024-12-03T09:42:47.840Z info: Request URL: /api/likes/670ab24340f95c2c0d0cf58e | Request Body: {}
+2024-12-03T09:43:06.154Z info: Request URL: /api/details | Request Body: {}
+2024-12-03T09:43:42.296Z info: Request URL: /api/details/mine | Request Body: {}

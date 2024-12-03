@@ -31,6 +31,10 @@ export const detailSchema = new mongoose.Schema({
       postID: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "Post"
+      },
+      likeID: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Like"
       }
     }
   ]

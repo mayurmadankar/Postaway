@@ -20,7 +20,8 @@ export default class LikeRepository {
         {
           $push: {
             likedPosts: {
-              postId: postId
+              postId: postId,
+              likeId: result._id
             }
           }
         }
