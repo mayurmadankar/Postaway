@@ -5,9 +5,10 @@ export default class DetailRepository {
     try {
       // Fetch the user's interaction details
       const details = await Detail.findOne({ user: userId })
-        .populate("createdPosts.postID", "title content") // Example fields from Post
+        .populate("user")
+        .populate("createdPosts.postID", "title content")
         .populate("commentedPosts.postID", "title")
-        .populate("commentedPosts.commentID", "text") // Example fields from Comment
+        .populate("commentedPosts.commentID", "text")
         .populate("likedPosts.postID", "title")
         .lean();
 

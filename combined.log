@@ -48,3 +48,5 @@
 2024-12-03T09:42:47.840Z info: Request URL: /api/likes/670ab24340f95c2c0d0cf58e | Request Body: {}
 2024-12-03T09:43:06.154Z info: Request URL: /api/details | Request Body: {}
 2024-12-03T09:43:42.296Z info: Request URL: /api/details/mine | Request Body: {}
+2024-12-03T09:52:02.651Z info: Request URL: /api/details/mine | Request Body: {}
+2024-12-03T09:54:34.149Z info: Request URL: /api/details/mine | Request Body: {}

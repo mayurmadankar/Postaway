@@ -35,8 +35,6 @@ export default class LikeRepository {
   async get(postId) {
     try {
       const likePost = await LikeModel.findOne({ postId: postId });
-      //   console.log(postId);
-      //   console.log(likePost);
       if (!likePost) {
         throw new ApplicationError("Post not found", 400);
       }
