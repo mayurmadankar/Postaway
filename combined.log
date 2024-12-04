@@ -50,3 +50,8 @@
 2024-12-03T09:43:42.296Z info: Request URL: /api/details/mine | Request Body: {}
 2024-12-03T09:52:02.651Z info: Request URL: /api/details/mine | Request Body: {}
 2024-12-03T09:54:34.149Z info: Request URL: /api/details/mine | Request Body: {}
+2024-12-04T11:17:54.718Z info: Request URL: /api/details/mine | Request Body: {}
+2024-12-04T11:18:01.886Z info: Request URL: /api/users/signin | Request Body: {"emailId":"pqrs@gmail.com","password":"mine123"}
+2024-12-04T11:18:16.471Z info: Request URL: /api/details/mine | Request Body: {}
+2024-12-04T11:18:45.847Z info: Request URL: /api/details/mine | Request Body: {}
+2024-12-04T11:19:01.726Z info: Request URL: /api/details/mine | Request Body: {}
