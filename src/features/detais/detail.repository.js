@@ -10,7 +10,7 @@ export default class DetailRepository {
         .populate("commentedPosts.postID", "title")
         .populate("commentedPosts.commentID", "text")
         .populate("likedPosts.postID", "title")
-        .populate("likedPosts.likeID","title")
+        .populate("likedPosts.likeID")
         .lean();
 
       return details;
