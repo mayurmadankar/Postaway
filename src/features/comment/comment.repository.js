@@ -2,7 +2,6 @@ import { CommentModel } from "./comment.schema.js";
 import { PostModel } from "../post/post.schema.js";
 import ApplicationError from "../../middleware/applicationError.middleware.js";
 import Detail from "../details/detail.schema.js";
-import { Intern } from "../../interview/intern.schema.js";
 
 export default class CommentRepository {
   async add(postId, userId, comment) {
@@ -42,19 +41,6 @@ export default class CommentRepository {
             }
           },
           { upsert: true } // Create a new Detail document if none exists for the user
-        );
-        await Intern.updateOne(
-          { user: userId },
-          {
-            $push: {
-              Comments: {
-                postId: postId,
-                commentId:
-                  createComment.comments[createComment.comments.length - 1]._id
-              }
-            }
-          },
-          { upsert: true }
         );
       }
 

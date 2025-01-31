@@ -16,7 +16,6 @@ import loggerMiddleware from "./src/middleware/logger.middleware.js";
 import { connectUsingMongoose } from "./src/config/mongooseConfig.js";
 import friendRouter from "./src/features/friend/friend.routes.js";
 import detailRouter from "./src/features/details/detail.route.js";
-import InternRouter from "./src/interview/intern.route.js";
 
 //create the server using express server
 const server = express();
@@ -61,8 +60,6 @@ server.use(errorHandlerMiddleware);
 server.use("/", (req, res) => {
   res.send("Welcome to the Postaway API");
 });
-
-server.use("/api/interview", InternRouter);
 
 const port = 3000;
 server.listen(port, () => {

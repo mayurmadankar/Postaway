@@ -7,9 +7,7 @@ const baseUrl = process.env.DB_URL || "0.0.0.0:27017";
 export const connectUsingMongoose = async () => {
   try {
     await mongoose
-      .connect(baseUrl, {
-        dbName: "SocialMedia"
-      })
+      .connect(baseUrl)
       .then(() => console.log("Mongodb connected using mongoose"))
       .catch((err) =>
         console.error("Error while connecting to db:", err.message)
