@@ -1,7 +1,7 @@
 import ApplicationError from "../../middleware/applicationError.middleware.js";
 import mongoose from "mongoose";
 import { PostModel } from "./post.schema.js";
-import Detail from "../detais/detail.schema.js";
+import Detail from "../details/detail.schema.js";
 
 export default class PostRepository {
   async create(caption, description, image, userId) {

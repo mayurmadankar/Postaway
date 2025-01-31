@@ -1,5 +1,5 @@
 import ApplicationError from "../../middleware/applicationError.middleware.js";
-import Detail from "../detais/detail.schema.js";
+import Detail from "../details/detail.schema.js";
 import { PostModel } from "../post/post.schema.js";
 import { UserModel } from "../user/user.schema.js";
 import { LikeModel } from "./like.schema.js";
